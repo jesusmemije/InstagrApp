@@ -1,4 +1,4 @@
-package com.example.instagrapp
+package com.example.instagrapp.ui
 
 import android.widget.Toast
 import androidx.annotation.DrawableRes
@@ -30,6 +30,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.instagrapp.R
 
 @Composable
 fun FrontRecyclerView() {
