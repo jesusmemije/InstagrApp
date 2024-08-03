@@ -1,7 +1,10 @@
 package com.example.instagrapp.login.ui
 
+import android.content.Context
 import android.util.Log
 import android.util.Patterns
+import android.widget.Toast
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -35,12 +38,14 @@ class LoginViewModel @Inject constructor(private val loginUseCase: LoginUseCase)
     private fun setEnableLogin(email: String, password: String) =
         Patterns.EMAIL_ADDRESS.matcher(email).matches() && password.length > 6
 
-    fun onLoginSelected() {
+    fun onLoginSelected(context: Context) {
         viewModelScope.launch {
             _isLoading.value = true
             val result = loginUseCase(email.value!!, password.value!!)
             if (result) {
-                Log.i("Memije", "Result Ok")
+                Toast.makeText(context, "¡TODO OK. Login exitoso!", Toast.LENGTH_SHORT).show()
+            } else {
+                Toast.makeText(context, "¡ERROR!", Toast.LENGTH_SHORT).show()
             }
             _isLoading.value = false
         }

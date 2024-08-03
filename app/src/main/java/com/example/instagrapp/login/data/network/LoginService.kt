@@ -9,7 +9,7 @@ class LoginService @Inject constructor(private val loginClient: LoginClient) {
 
     suspend fun doLogin(user: String, password: String): Boolean {
         return withContext(Dispatchers.IO) {
-            val response = loginClient.doLogin( )
+            val response = loginClient.doLogin()
             response.body()?.success ?: false
         }
     }
